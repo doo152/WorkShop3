@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using BusinessLayer;
 
 
+
 namespace Workshop3
 {
     public partial class PackagesDisplay : Form
@@ -28,9 +29,12 @@ namespace Workshop3
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            Global.indexToEdit = datPackages.SelectedRows[0].Index;
-            PackageDetails newForm = new PackageDetails();
-            newForm.Show();
+            if (datPackages.SelectedRows.Count > 0)
+            {
+                Global.indexToEdit = datPackages.SelectedRows[0].Index;
+                PackageDetails newForm = new PackageDetails();
+                newForm.Show();
+            }
         }
 
         private void datPackages_DoubleClick(object sender, EventArgs e)
