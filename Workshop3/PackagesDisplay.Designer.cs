@@ -41,11 +41,18 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnProdNew = new System.Windows.Forms.Button();
+            this.btnProdEdit = new System.Windows.Forms.Button();
+            this.datProduct = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.colProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtProdName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.datPackages)).BeginInit();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datProduct)).BeginInit();
             this.SuspendLayout();
             // 
             // Commission
@@ -149,6 +156,7 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(752, 408);
             this.tabControl.TabIndex = 4;
+            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -166,13 +174,52 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.txtProdName);
+            this.tabPage2.Controls.Add(this.btnProdNew);
+            this.tabPage2.Controls.Add(this.btnProdEdit);
+            this.tabPage2.Controls.Add(this.datProduct);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(744, 382);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Products";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnProdNew
+            // 
+            this.btnProdNew.Location = new System.Drawing.Point(151, 234);
+            this.btnProdNew.Name = "btnProdNew";
+            this.btnProdNew.Size = new System.Drawing.Size(75, 23);
+            this.btnProdNew.TabIndex = 7;
+            this.btnProdNew.Text = "Add New";
+            this.btnProdNew.UseVisualStyleBackColor = true;
+            this.btnProdNew.Click += new System.EventHandler(this.btnProdNew_Click);
+            // 
+            // btnProdEdit
+            // 
+            this.btnProdEdit.Location = new System.Drawing.Point(151, 205);
+            this.btnProdEdit.Name = "btnProdEdit";
+            this.btnProdEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnProdEdit.TabIndex = 6;
+            this.btnProdEdit.Text = "Edit";
+            this.btnProdEdit.UseVisualStyleBackColor = true;
+            this.btnProdEdit.Click += new System.EventHandler(this.btnProdEdit_Click);
+            // 
+            // datProduct
+            // 
+            this.datProduct.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.datProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datProduct.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colProdName});
+            this.datProduct.Location = new System.Drawing.Point(27, 30);
+            this.datProduct.Name = "datProduct";
+            this.datProduct.ReadOnly = true;
+            this.datProduct.RowHeadersVisible = false;
+            this.datProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.datProduct.Size = new System.Drawing.Size(240, 150);
+            this.datProduct.TabIndex = 5;
+            this.datProduct.SelectionChanged += new System.EventHandler(this.datProduct_SelectionChanged);
             // 
             // tabPage3
             // 
@@ -181,7 +228,7 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(744, 382);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.Text = "Suppliers";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // tabPage4
@@ -191,8 +238,21 @@
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(744, 382);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.Text = "Product & Supplies";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // colProdName
+            // 
+            this.colProdName.HeaderText = "Product Name";
+            this.colProdName.Name = "colProdName";
+            this.colProdName.ReadOnly = true;
+            // 
+            // txtProdName
+            // 
+            this.txtProdName.Location = new System.Drawing.Point(27, 220);
+            this.txtProdName.Name = "txtProdName";
+            this.txtProdName.Size = new System.Drawing.Size(100, 20);
+            this.txtProdName.TabIndex = 9;
             // 
             // PackagesDisplay
             // 
@@ -207,6 +267,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.datPackages)).EndInit();
             this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datProduct)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -228,5 +291,10 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Button btnProdNew;
+        private System.Windows.Forms.Button btnProdEdit;
+        private System.Windows.Forms.DataGridView datProduct;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProdName;
+        private System.Windows.Forms.TextBox txtProdName;
     }
 }

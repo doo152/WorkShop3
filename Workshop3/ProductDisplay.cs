@@ -23,12 +23,11 @@ namespace Workshop3
 
         private void ProductsDisplay_Load_1(object sender, EventArgs e)
         {
-            List<Product> products = Product.GetList();
-            //datProducts.Rows.Clear();
-            foreach (Product pn in products)
-            {
-                datProduct.Rows.Add(pn.ProdName);
-            }
+ 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
 
         }
     }

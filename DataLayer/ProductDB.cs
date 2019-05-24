@@ -24,11 +24,11 @@ namespace DataLayer
 
             return data;
         }
-        public static int InsertProdName(int ProductId, String ProdName)
+        public static int InsertProdName(string ProdName)
         {
             int result;
             string sql =
-                "INSERT INTO Products (ProdName)" +
+                "INSERT INTO Products (ProdName) " +
                 "VALUES(@ProdName);";
             TravelExpertsConnection conn = new TravelExpertsConnection();
             SqlCommand command = new SqlCommand(sql, conn.connection);
@@ -42,24 +42,12 @@ namespace DataLayer
             int result;
             string sql =
                 "UPDATE Products " +
-                "SET ProdName = @ProdName" +
+                "SET ProdName = @ProdName " +
                 "WHERE ProductId = @ProductID;";
             TravelExpertsConnection conn = new TravelExpertsConnection();
             SqlCommand command = new SqlCommand(sql, conn.connection);
             command.Parameters.AddWithValue("@ProdName", ProdName);
-            result = command.ExecuteNonQuery();
-            conn.Close();
-            return result;
-        }
-        public static int DeleteProducts(int ProductId)
-        {
-            int result;
-            string sql =
-                "DELETE FROM Products " +
-                "WHERE ProductId = @ProductId";
-            TravelExpertsConnection conn = new TravelExpertsConnection();
-            SqlCommand command = new SqlCommand(sql, conn.connection);
-            command.Parameters.AddWithValue("@ProductId", ProductId);
+            command.Parameters.AddWithValue("@ProductID", ProductId);
             result = command.ExecuteNonQuery();
             conn.Close();
             return result;

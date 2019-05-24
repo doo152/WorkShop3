@@ -79,5 +79,46 @@ namespace Workshop3
                 datPackages.ClearSelection();
             }
         }
+
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Global.Products = Product.GetList();
+            refreshdatProduct();
+        }
+
+        private void refreshdatProduct()
+        {
+            datProduct.Rows.Clear();
+            foreach (Product pn in Global.Products)
+            {
+                datProduct.Rows.Add(pn.ProdName);
+            }
+        }
+
+        private void btnProdEdit_Click(object sender, EventArgs e)
+        {
+            if (datProduct.SelectedRows.Count > 0)
+            {
+                int index = datProduct.SelectedRows[0].Index;
+                Global.Products[index].ProdName = txtProdName.Text;
+                MessageBox.Show(Global.Products[index].Update().ToString());
+                refreshdatProduct();
+            }
+        }
+
+        private void datProduct_SelectionChanged(object sender, EventArgs e)
+        {
+            if (datProduct.SelectedRows.Count == 1)
+            {
+              txtProdName.Text = datProduct.SelectedRows[0].Cells[0].Value.ToString();
+            }
+        }
+
+        private void btnProdNew_Click(object sender, EventArgs e)
+        {
+            Product.Insert(txtProdName.Text);
+            Global.Products = Product.GetList();
+            refreshdatProduct();
+        }
     }
 }
