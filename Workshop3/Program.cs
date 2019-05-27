@@ -16,7 +16,8 @@ namespace Workshop3
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PackagesDisplay());
+            Application.Run(new PkgProductSupplierDisplay());
+            Application.Run(new ProdSuppDisplay());
         }
     }
 }

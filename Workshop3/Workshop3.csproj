@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addProSup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addProSup.Designer.cs">
+      <DependentUpon>addProSup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Globals.cs" />
     <Compile Include="PackageDetails.cs">
       <SubType>Form</SubType>
@@ -59,6 +65,18 @@
     <Compile Include="PackagesDisplay.Designer.cs">
       <DependentUpon>PackagesDisplay.cs</DependentUpon>
     </Compile>
+    <Compile Include="PkgProductSupplierDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PkgProductSupplierDisplay.Designer.cs">
+      <DependentUpon>PkgProductSupplierDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProdSuppDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProdSuppDisplay.Designer.cs">
+      <DependentUpon>ProdSuppDisplay.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductDisplay.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,11 +85,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="addProSup.resx">
+      <DependentUpon>addProSup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PackageDetails.resx">
       <DependentUpon>PackageDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PackagesDisplay.resx">
       <DependentUpon>PackagesDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PkgProductSupplierDisplay.resx">
+      <DependentUpon>PkgProductSupplierDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProdSuppDisplay.resx">
+      <DependentUpon>ProdSuppDisplay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductDisplay.resx">
       <DependentUpon>ProductDisplay.cs</DependentUpon>
