@@ -185,6 +185,7 @@
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.txtName);
             this.Name = "PackageDetails";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PackageDetails";
             this.Load += new System.EventHandler(this.PackageDetails_Load);
             this.ResumeLayout(false);
