@@ -40,19 +40,42 @@ namespace Workshop3
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (Global.indexToEdit == -1)
+            bool formValidated = true;
+
+            if (txtName.Text == "" || txtDesc.Text == "")
             {
-                Global.packages.Add(Package.InsertNew(txtName.Text, dtpStartDate.Value, dtpEndDate.Value, txtDesc.Text,
-                    decimal.Parse(txtPrice.Text, NumberStyles.Any), decimal.Parse(txtCommission.Text, NumberStyles.Any)));
+                formValidated = false;
+                MessageBox.Show("Name and Description must be filled out.");
             }
-            else
+
+            if (dtpEndDate.Value < dtpStartDate.Value)
             {
-                int tempID = Global.packages[Global.indexToEdit].PackageId;
-                Global.packages[Global.indexToEdit] = new Package(tempID, txtName.Text, dtpStartDate.Value, dtpEndDate.Value, txtDesc.Text,
-                    decimal.Parse(txtPrice.Text, NumberStyles.Any), decimal.Parse(txtCommission.Text, NumberStyles.Any));
-                MessageBox.Show(Global.packages[Global.indexToEdit].Update().ToString() + " rows affected");
+                formValidated = false;
+                MessageBox.Show("End Date must be later than Start Date.");
             }
-            this.Close();
+
+            if (Convert.ToDecimal(txtCommission.Text) > Convert.ToDecimal(txtPrice.Text))
+            {
+                formValidated = false;
+                MessageBox.Show("Price must be higher than Commission");
+            }
+
+            if (formValidated)
+            {
+                if (Global.indexToEdit == -1)
+                {
+                    Global.packages.Add(Package.InsertNew(txtName.Text, dtpStartDate.Value, dtpEndDate.Value, txtDesc.Text,
+                        decimal.Parse(txtPrice.Text, NumberStyles.Any), decimal.Parse(txtCommission.Text, NumberStyles.Any)));
+                }
+                else
+                {
+                    int tempID = Global.packages[Global.indexToEdit].PackageId;
+                    Global.packages[Global.indexToEdit] = new Package(tempID, txtName.Text, dtpStartDate.Value, dtpEndDate.Value, txtDesc.Text,
+                        decimal.Parse(txtPrice.Text, NumberStyles.Any), decimal.Parse(txtCommission.Text, NumberStyles.Any));
+                    MessageBox.Show(Global.packages[Global.indexToEdit].Update().ToString() + " rows affected");
+                }
+                this.Close();
+            }
         }
     }
 }
