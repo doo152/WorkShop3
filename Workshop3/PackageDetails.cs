@@ -42,12 +42,8 @@ namespace Workshop3
         {
             if (Global.indexToEdit == -1)
             {
-                Package temp = new Package(Global.indexToEdit, txtName.Text, dtpStartDate.Value, dtpEndDate.Value, txtDesc.Text,
-                    decimal.Parse(txtPrice.Text, NumberStyles.Any), decimal.Parse(txtCommission.Text, NumberStyles.Any));
-                Global.packages.Add(temp);
-
-                MessageBox.Show(temp.Insert().ToString() + " rows affected");
-
+                Global.packages.Add(Package.InsertNew(txtName.Text, dtpStartDate.Value, dtpEndDate.Value, txtDesc.Text,
+                    decimal.Parse(txtPrice.Text, NumberStyles.Any), decimal.Parse(txtCommission.Text, NumberStyles.Any)));
             }
             else
             {

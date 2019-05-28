@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PackageDB.cs" />
+    <Compile Include="PkgProductsSuppliersDB.cs" />
+    <Compile Include="ProdSupDB.cs" />
     <Compile Include="ProductDB.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

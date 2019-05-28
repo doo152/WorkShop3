@@ -26,13 +26,14 @@ namespace DataLayer
             return data;
         }
 
-        public static int InsertPackage(int PackageId, string PkgName, DateTime PkgStartDate, DateTime PkgEndDate, 
+        public static int InsertPackage(string PkgName, DateTime PkgStartDate, DateTime PkgEndDate, 
             string PkgDesc, decimal PkgBasePrice, decimal PkgAgencyCommission)
         {
             int result;
             string sql =
-                "INSERT INTO Packages (PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission)" +
-                "VALUES (@PkgName, @PkgStartDate, @PkgEndDate, @PkgDesc, @PkgBasePrice, @PkgAgencyCommission);";
+                "INSERT INTO Packages (PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission) " +
+                "VALUES (@PkgName, @PkgStartDate, @PkgEndDate, @PkgDesc, @PkgBasePrice, @PkgAgencyCommission) " +
+                "SELECT SCOPE_IDENTITY()";
             TravelExpertsConnection conn = new TravelExpertsConnection();
             SqlCommand command = new SqlCommand(sql, conn.connection);
             command.Parameters.AddWithValue("@PkgName", PkgName);
@@ -41,7 +42,7 @@ namespace DataLayer
             command.Parameters.AddWithValue("@PkgDesc", PkgDesc);
             command.Parameters.AddWithValue("@PkgBasePrice", PkgBasePrice.ToString());
             command.Parameters.AddWithValue("@PkgAgencyCommission", PkgAgencyCommission.ToString());
-            result = command.ExecuteNonQuery();
+            result = Convert.ToInt32(command.ExecuteScalar());
             conn.Close();
             return result;
         }

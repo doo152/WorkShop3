@@ -31,6 +31,15 @@ namespace BusinessLayer
             }
             return result;
         }
+        public int Update()
+        {
+            return ProductDB.UpdateProducts(ProductId, ProdName);
+        }
+        public static int Insert(string ProdName)
+        {
+            return ProductDB.InsertProdName(ProdName);
+        }
+
     }
 }
 
