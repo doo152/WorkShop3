@@ -22,6 +22,9 @@ namespace Workshop3
 
         private void PackagesDisplay_Load(object sender, EventArgs e)
         {
+            
+            // TODO: This line of code loads data into the 'travelExpertsDataSet.Suppliers' table. You can move, or remove it, as needed.
+            this.suppliersTableAdapter.Fill(this.travelExpertsDataSet.Suppliers);
             Global.packages = Package.GetList();
             RefreshDataGrid();
         }
@@ -78,6 +81,16 @@ namespace Workshop3
                 RefreshDataGrid();
                 datPackages.ClearSelection();
             }
+        }
+
+        private void datPackages_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

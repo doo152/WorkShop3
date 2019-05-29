@@ -10,6 +10,9 @@ namespace Workshop3
     public static class Global
     {
         public static List<Package> packages;
+        public static List<Product> Products;
+        public static List<PkgProductsSuppliers> productsSuppliers;
+        public static List<Supplier> suppliers;
         public static int indexToEdit = -1;
     }
 }

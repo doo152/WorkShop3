@@ -14,7 +14,7 @@ namespace BusinessLayer
     public class Supplier
     {
         public int SupplierId { get; set; }
-        public string  SupName { get; set; }
+        public string SupName { get; set; }
 
 
 
@@ -26,21 +26,21 @@ namespace BusinessLayer
 
         public static List<Supplier> GetList()
         {
-            
 
-            
-                List<Supplier> result = new List<Supplier>();
 
-                DataSet data = SupplierDB.GetDataSet();
 
-                foreach (DataRow row in data.Tables[0].Rows)
-                {
-                    result.Add(new Supplier(Convert.ToInt32(row["SupplierId"]), Convert.ToString(row["SupName"])));
+            List<Supplier> result = new List<Supplier>();
 
-                   
-                }
-                return result;
-            
+            DataSet data = SupplierDB.GetDataSet();
+
+            foreach (DataRow row in data.Tables[0].Rows)
+            {
+                result.Add(new Supplier(Convert.ToInt32(row["SupplierId"]), Convert.ToString(row["SupName"])));
+
+
+            }
+            return result;
+
         }
 
         public int Insert()

@@ -8,7 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 namespace DataLayer
 {
-   public class SupplierDB
+    public class SupplierDB
     {
         public static object SupName { get; private set; }
 
@@ -33,7 +33,7 @@ namespace DataLayer
             TravelExpertsConnection conn = new TravelExpertsConnection();
             SqlCommand command = new SqlCommand(sql, conn.connection);
             command.Parameters.AddWithValue("@SupName", SupName);
-            
+
             result = command.ExecuteNonQuery();
             conn.Close();
             return result;
@@ -48,7 +48,7 @@ namespace DataLayer
             TravelExpertsConnection conn = new TravelExpertsConnection();
             SqlCommand command = new SqlCommand(sql, conn.connection);
             command.Parameters.AddWithValue("@SupName", SupName);
-            
+
             command.Parameters.AddWithValue("@SupplierId", SupplierId.ToString());
             result = command.ExecuteNonQuery();
             conn.Close();
