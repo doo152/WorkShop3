@@ -48,9 +48,11 @@ namespace BusinessLayer
 
         }
 
-        public int Insert()
+        public static Package InsertNew(string PkgName, DateTime PkgStartDate, DateTime PkgEndDate, string PkgDesc,
+            decimal PkgBasePrice, decimal PkgAgencyCommission)
         {
-            return PackageDB.InsertPackage(PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission);
+            int newID = PackageDB.InsertPackage(PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission);
+            return new Package(newID, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission);
         }
 
         public int Update()
